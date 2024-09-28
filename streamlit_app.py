@@ -16,7 +16,7 @@ if gemini_api_key:
     except Exception as e:
         st.error(f"An error occurred while setting up the Gemini model: {e}")
 
-st.write('ลองพิมพ์สวัสดี')
+
 # Initialize session state for storing chat history and prompt history
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []  # Initialize with an empty list
@@ -44,7 +44,7 @@ if user_input := st.chat_input("Type your message here..."):
     st.chat_message("user").markdown(user_input)
    
     # Append the new question to the prompt chain
-    st.session_state.prompt_chain += f"\nCustomer: {user_input}"
+    st.session_state.prompt_chain += f"\n{user_input}"
    
     # Combine the predefined prompt chain with the current user input
     full_input = st.session_state.prompt_chain
